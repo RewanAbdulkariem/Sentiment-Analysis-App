@@ -2,9 +2,15 @@ import streamlit as st
 import helper
 import pickle
 
-# Load the model
-model = pickle.load(open(r'model\model.pkl', 'rb'))
-vectorized = pickle.load(open(r'model\vectorizer.pkl', 'rb'))
+import os
+import pickle
+
+# Use os.path.join for cross-platform compatibility
+model_path = os.path.join('model', 'model.pkl')
+model = pickle.load(open(model_path, 'rb'))
+vectorized_path = os.path.join('model', 'vectorizer.pkl')
+
+vectorized = pickle.load(open(vectorized_path, 'rb'))
 
 
 st.title("Sentiment Analysis App using ML")
